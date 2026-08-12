@@ -1304,24 +1304,31 @@ h2#information-title, .section-kicker.info-kicker, .section-kicker.info-kicker b
   display: flex;
   align-items: baseline;
   gap: 26px;
-  margin: 0
+  margin: 0;
+  z-index: 1;
 }
 
 .info-list small {
-  width: 150px;
+  width: 100px;
   color: var(--blue);
-  font-size: .65rem; 
+  font-size: .65rem;
+  padding: 0 .5rem;
+  background: var(--white);
 }
 
 .info-list strong {
   font-size: 0.9375rem;
-  font-weight: 500
+  font-weight: 500;
+  padding: 0 .5rem;
+  background: var(--white);
 }
 
 .info-list i {
   font-style: normal;
   font-size: .875rem;
-  color: #7d97b3
+  color: #7d97b3;
+  padding: 0 .5rem;
+  background: var(--white);
 }
 
 /* contact */
