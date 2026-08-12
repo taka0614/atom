@@ -1738,7 +1738,7 @@ h2#information-title, .section-kicker.info-kicker, .section-kicker.info-kicker b
   }
 
   .site-header__inner {
-    grid-template-columns: auto 1fr auto
+    grid-template-columns: auto 1fr;
   }
 
   .global-nav,
@@ -1886,7 +1886,8 @@ h2#information-title, .section-kicker.info-kicker, .section-kicker.info-kicker b
     text-align: left;
     justify-self: stretch;
     width: 100%;
-    transform: translateX(10px)
+    margin: .5rem 0;
+    transform: translateX(10px);
   }
 
   .flow-step:nth-child(even) .flow-step__content {
@@ -1894,7 +1895,8 @@ h2#information-title, .section-kicker.info-kicker, .section-kicker.info-kicker b
   }
 
   .side-posts {
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
+    overflow: hidden;
   }
 
   .blog-index-link {
@@ -2007,7 +2009,7 @@ h2#information-title, .section-kicker.info-kicker, .section-kicker.info-kicker b
   }
 
   .side-post {
-    grid-template-columns: 120px 1fr
+    grid-template-columns: 100% 1fr
   }
 
   .side-post__image {
@@ -2499,12 +2501,19 @@ h2#information-title, .section-kicker.info-kicker, .section-kicker.info-kicker b
 }
 
 @media (max-width:560px) {
+
+  img.brand__mark {
+    max-width: 100px;
+  }
+
   .hero__inner {
     padding-top: 20px;
     padding-bottom: 30px
   }
 
   .hero__board {
+    display: flex;
+    flex-direction: column-reverse;
     clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px)
   }
 
@@ -2570,5 +2579,25 @@ h2#information-title, .section-kicker.info-kicker, .section-kicker.info-kicker b
 
   .hero__corner-label {
     display: none
+  }
+}
+
+/* --- 表示切り替え用ユーティリティクラス --- */
+
+/* デフォルト (SPファースト) の設定 */
+.pc-only {
+  display: none !important; /* SPではPC用を非表示 */
+}
+.sp-only {
+  display: block; /* SP用を表示 (※元の要素に合わせて適宜 absolute 等と一緒に効くようにします) */
+}
+
+/* PCサイズ (例: 768px以上) の設定 */
+@media screen and (min-width: 768px) {
+  .pc-only {
+    display: block !important; /* PCではPC用を表示 */
+  }
+  .sp-only {
+    display: none !important; /* PCではSP用を非表示 */
   }
 }
