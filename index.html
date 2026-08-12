@@ -54,34 +54,78 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero section-observe" aria-labelledby="hero-title">
+      <!-- ① 背景全体（hero__circuit） -->
       <div class="hero__circuit circuit-layer" aria-hidden="true">
         <svg viewBox="0 0 1440 720" preserveAspectRatio="none">
+          <!-- 既存のベースパス -->
           <path class="circuit-base" d="M0 116H124L156 84H362L388 58H600M0 628H110L146 592H322L354 560H538" />
           <path class="circuit-base" d="M904 42H1302L1354 94V280M1026 664H1332L1386 610V446" />
+          
+          <!-- ★新規追加：背景の中央〜下部から伸びるパス -->
+          <path class="circuit-base" d="M400 720V660L460 600H700L750 550H900" />
+          <!-- ★新規追加：背景の上部から伸びるパス -->
+          <path class="circuit-base" d="M600 0V40L640 80H800" />
+
+          <!-- アニメーション用パルス -->
           <path class="circuit-pulse circuit-pulse--1" pathLength="100" d="M0 116H124L156 84H362L388 58H600" />
+          <!-- ★新規追加：パルスアニメーション -->
+          <path class="circuit-pulse circuit-pulse--2" pathLength="100" d="M400 720V660L460 600H700L750 550H900" />
+
+          <!-- ノード（丸） -->
           <circle class="circuit-node" cx="388" cy="58" r="5" />
           <circle class="circuit-node circuit-node--strong" cx="904" cy="42" r="5" />
+          <!-- ★新規追加：ノード -->
+          <circle class="circuit-node" cx="460" cy="600" r="4" />
+          <circle class="circuit-node" cx="750" cy="550" r="4.5" />
         </svg>
       </div>
 
       <div class="hero__inner shell">
         <div class="hero__board">
+          <!-- ② PC用ボード背景 -->
           <svg class="hero__board-lines pc-only" viewBox="0 0 1280 540" preserveAspectRatio="none" aria-hidden="true">
+            <!-- 既存のベースパス -->
             <path class="circuit-base" d="M0 86H68L92 62H300M0 466H78L104 492H326" />
             <path class="circuit-base" d="M512 0V36L536 60H626M512 540V510L536 486H650" />
             <path class="circuit-base" d="M1138 0V34L1164 60H1280M1146 540V510L1172 484H1280" />
+            
+            <!-- ★新規追加：下部から中央へ向かうパス -->
+            <path class="circuit-base" d="M200 540V480L260 420H450" />
+            <!-- ★新規追加：上部から中央へ向かうパス -->
+            <path class="circuit-base" d="M900 0V80L960 140H1080" />
+
+            <!-- アニメーション用パルス -->
             <path class="circuit-pulse hero__board-pulse" pathLength="100" d="M0 86H68L92 62H300" />
+            <!-- ★新規追加：パルスアニメーション -->
+            <path class="circuit-pulse hero__board-pulse" pathLength="100" style="animation-delay: 1.5s;" d="M200 540V480L260 420H450" />
+
+            <!-- ノード（丸） -->
             <circle class="circuit-node" cx="92" cy="62" r="4.5" />
             <circle class="circuit-node circuit-node--strong" cx="536" cy="60" r="5" />
+            <!-- ★新規追加：ノード -->
+            <circle class="circuit-node" cx="260" cy="420" r="4" />
+            <circle class="circuit-node" cx="960" cy="140" r="4.5" />
           </svg>
 
+          <!-- ② SP用ボード背景 (PCと座標を合わせています) -->
           <svg class="hero__board-lines sp-only" viewBox="0 0 1280 540" aria-hidden="true">
             <path class="circuit-base" d="M0 86H68L92 62H300M0 466H78L104 492H326" />
             <path class="circuit-base" d="M512 0V36L536 60H626M512 540V510L536 486H650" />
             <path class="circuit-base" d="M1138 0V34L1164 60H1280M1146 540V510L1172 484H1280" />
+            
+            <!-- ★新規追加 -->
+            <path class="circuit-base" d="M200 540V480L260 420H450" />
+            <path class="circuit-base" d="M900 0V80L960 140H1080" />
+
             <path class="circuit-pulse hero__board-pulse" pathLength="100" d="M0 86H68L92 62H300" />
+            <!-- ★新規追加 -->
+            <path class="circuit-pulse hero__board-pulse" pathLength="100" style="animation-delay: 1.5s;" d="M200 540V480L260 420H450" />
+
             <circle class="circuit-node" cx="92" cy="62" r="4.5" />
             <circle class="circuit-node circuit-node--strong" cx="536" cy="60" r="5" />
+            <!-- ★新規追加 -->
+            <circle class="circuit-node" cx="260" cy="420" r="4" />
+            <circle class="circuit-node" cx="960" cy="140" r="4.5" />
           </svg>
 
           <div class="hero__copy">
@@ -109,13 +153,30 @@
                   height="600" decoding="async" fetchpriority="high">
               </figure>
 
+              <!-- ③ 画像オーバーレイ -->
               <div class="hero-visual__overlay-circuit" aria-hidden="true">
                 <svg viewBox="0 0 760 500" preserveAspectRatio="none">
+                  <!-- 既存のパス -->
                   <path d="M0 410H82L106 386H218" />
                   <path d="M548 54H648L676 82H760" />
+                  
+                  <!-- ★新規追加：左上から流れるパス -->
+                  <path d="M0 50H120L150 80V180" />
+                  <!-- ★新規追加：右下から流れるパス -->
+                  <path d="M760 400H650L600 350V250" />
+
+                  <!-- アニメーション用シグナル -->
                   <path class="signal" pathLength="100" d="M0 410H82L106 386H218" />
+                  <!-- ★新規追加：シグナルアニメーション（遅延付き） -->
+                  <path class="signal" pathLength="100" style="animation-delay: 2s;" d="M0 50H120L150 80V180" />
+                  <path class="signal" pathLength="100" style="animation-delay: 1s;" d="M760 400H650L600 350V250" />
+
+                  <!-- ノード（丸） -->
                   <circle cx="106" cy="386" r="4" />
                   <circle cx="676" cy="82" r="4" />
+                  <!-- ★新規追加：ノード -->
+                  <circle cx="150" cy="80" r="3.5" />
+                  <circle cx="600" cy="350" r="3.5" />
                 </svg>
               </div>
 
@@ -353,11 +414,23 @@
     <!-- INFORMATION -->
     <section class="information section-pad section-observe" id="information" aria-labelledby="information-title">
       <svg class="contact-panel__circuit" viewBox="0 0 1280 450" preserveAspectRatio="none" aria-hidden="true">
+
         <path d="M0 72H170L210 32H462M1280 378H1120L1082 418H810" />
         <path d="M1016 0V44L986 74V126M270 450V404L300 374V324" />
-        <path class="circuit-pulse circuit-pulse--white" pathLength="100" d="M1280 378H1120L1082 418H810" />
+
+
+        <path class="circuit-pulse circuit-pulse--white" pathLength="100" d="M0 72H170L210 32H462" />
+
+
+        <path class="circuit-pulse circuit-pulse--white circuit-pulse--4" pathLength="100"
+          d="M1280 378H1120L1082 418H810" />
+
+
         <path class="circuit-pulse circuit-pulse--white circuit-pulse--2" pathLength="100"
           d="M270 450V404L300 374V324" />
+
+
+        <path class="circuit-pulse circuit-pulse--white circuit-pulse--3" pathLength="100" d="M1016 0V44L986 74V126" />
       </svg>
       <div class="shell">
         <div class="section-heading info-heading">
